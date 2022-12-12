@@ -11,9 +11,25 @@ public class GuitarTest {
     GuitarString guitarString;
     @Before
     public void before(){
-        guitarString = new GuitarString(StringType.WINDING,6);
-        guitar = new Guitar(InstrumentType.STRING, Material.WOOD,
+        guitarString = new GuitarString(Description.GUITAR_STRING,5.0, 7.5,StringType.WINDING,6);
+        guitar = new Guitar(Description.GUITAR,500.00,750.00,InstrumentType.STRING, Material.WOOD,
                 Color.BLACK,guitarString, GuitarBodyType.SOLID_BODY, FretboardType.EBONY);
+    }
+    @Test
+    public void hasDescription(){
+        assertEquals(Description.GUITAR, guitar.getDescription());
+    }
+    @Test
+    public void hasPriceBuy(){
+        assertEquals(500.0, guitar.getPriceBuy(),0);
+    }
+    @Test
+    public void hasPriceSell(){
+        assertEquals(750.0, guitar.getPriceSell(),0);
+    }
+    @Test
+    public void hasCalculateMarkup(){
+        assertEquals(0.5, guitar.calculateMarkup(),0);
     }
     @Test
     public void hasStringType(){
@@ -34,7 +50,7 @@ public class GuitarTest {
     }
     @Test
     public void hasGuitarString(){
-        int stringCount = guitarString.getStringCount();
+        int stringCount = guitar.getGuitarString().getStringCount();
         assertEquals(6, stringCount);
     }
     @Test
@@ -48,7 +64,12 @@ public class GuitarTest {
     }
     @Test
     public void hasGuitarFretboardType(){
-        assertEquals(FretboardType.EBONY, guitar.getFretboardType());
+        guitar.setFretboardType(FretboardType.MAPLE);
+        assertEquals(FretboardType.MAPLE, guitar.getFretboardType());
+    }
+    @Test
+    public void hasPlay(){
+        assertEquals("Guitar play", guitar.play());
     }
 
 }

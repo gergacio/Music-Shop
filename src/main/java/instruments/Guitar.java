@@ -8,10 +8,10 @@ public class Guitar extends Instrument{
     private GuitarBodyType guitarBodyType;
     private FretboardType fretboardType;
 
-    public Guitar(InstrumentType instrumentType, Material material, Color color,
+    public Guitar(Description description, Double priceBuy, Double priceSell,InstrumentType instrumentType, Material material, Color color,
                       GuitarString guitarString, GuitarBodyType guitarBodyType, FretboardType fretboardType){
         //invoke parent constructor
-        super(instrumentType, material, color);
+        super(description, priceBuy, priceSell,instrumentType, material, color);
         this.guitarString = guitarString;
         this.guitarBodyType = guitarBodyType;
         this.fretboardType = fretboardType;
@@ -49,6 +49,10 @@ public class Guitar extends Instrument{
     }
     public void setFretboardType(FretboardType fretboardType){
         this.fretboardType = fretboardType;
+    }
+
+    public String play(){
+        return "Guitar play";
     }
     
 }

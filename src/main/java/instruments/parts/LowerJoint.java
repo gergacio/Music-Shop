@@ -1,12 +1,17 @@
 package instruments.parts;
 
+import enums.Description;
 import enums.SoundType;
+import shop.Product;
 
-public class LowerJoint {
+public class LowerJoint extends Product {
     private int keys;
     private int tonHoles;
     private SoundType sound;
-    public LowerJoint(int keys, int tonHoles, SoundType sound){
+
+    public LowerJoint(Description description, Double priceBuy, Double priceSell,
+                      int keys, int tonHoles, SoundType sound) {
+        super(description, priceBuy, priceSell);
         this.keys = keys;
         this.tonHoles = tonHoles;
         this.sound = sound;

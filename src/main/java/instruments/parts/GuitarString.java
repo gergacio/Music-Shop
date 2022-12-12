@@ -1,11 +1,14 @@
 package instruments.parts;
 
+import enums.Description;
 import enums.StringType;
+import shop.Product;
 
-public class GuitarString {
+public class GuitarString extends Product {
     private StringType stringType;
     private int stringCount;
-    public GuitarString(StringType stringType, int stringCount){
+    public GuitarString(Description description, Double priceBuy, Double priceSell, StringType stringType, int stringCount){
+        super(description, priceBuy, priceSell);
         this.stringType = stringType;
         this.stringCount = stringCount;
     }
